@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Bulbasaur",
+    "thai": "ฟุชิงิดาเนะ",
+    "type": ["Grass", "Poison"],
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+  },
+  {
+    "id": 2,
+    "name": "Ivysaur",
+    "thai": "ฟุชิงิโซ",
+    "type": ["Grass", "Poison"],
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
+  },
+  {
+    "id": 3,
+    "name": "Venusaur",
+    "thai": "ฟุชิงิบานะ",
+    "type": ["Grass", "Poison"],
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
+  },
+  {
+    "id": 4,
+    "name": "Charmander",
+    "thai": "ฮิโตะคาเงะ",
+    "type": ["Fire"],
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
+  },
+  {
+    "id": 5,
+    "name": "Charmeleon",
+    "thai": "ลิซาร์โด",
+    "type": ["Fire"],
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
+  },
+  {
+    "id": 6,
+    "name": "Charizard",
+    "thai": "ลิซาร์ดอน",
+    "type": ["Fire", "Flying"],
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
+  },
+  {
+    "id": 7,
+    "name": "Squirtle",
+    "thai": "เซนิกาเมะ",
+    "type": ["Water"],
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
+  },
+  {
+    "id": 8,
+    "name": "Wartortle",
+    "thai": "คาเมล",
+    "type": ["Water"],
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png"
+  },
+  {
+    "id": 9,
+    "name": "Blastoise",
+    "thai": "คาเม็กซ์",
+    "type": ["Water"],
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
+  }
+]
