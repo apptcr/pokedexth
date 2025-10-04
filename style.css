@@ -7,9 +7,30 @@ body {
 
 header {
   text-align: center;
-  padding: 1.2em;
+  padding: 1em;
   background: linear-gradient(90deg, #ff1c1c, #ff4c4c);
   color: white;
+}
+
+.controls {
+  margin-top: 10px;
+}
+button {
+  background: #78C850;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 15px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+button:hover {
+  background: #5da43d;
+}
+button.active {
+  background: #f0c030;
 }
 
 #search {
@@ -46,7 +67,6 @@ header {
 
 .card img {
   width: 100px;
-  height: 100px;
 }
 
 .type {
@@ -63,7 +83,6 @@ header {
 .type.Water { background: #6890F0; }
 .type.Flying { background: #A890F0; }
 
-/* Popup */
 #popup.hidden { display: none; }
 #popup {
   position: fixed;
@@ -94,24 +113,22 @@ header {
   cursor: pointer;
   color: #ff1c1c;
 }
-#popup-img {
-  width: 150px;
+.fav-btn {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  background: #ffcc00;
+  color: #333;
 }
-#popup-thai {
-  font-size: 1.5em;
-  margin: 10px 0 0 0;
-}
-#popup-eng {
-  font-family: 'Poppins', sans-serif;
-  color: #777;
-  margin: 0;
+.fav-btn.added {
+  background: #78C850;
+  color: #fff;
 }
 .stat-bar {
   background: #ddd;
   border-radius: 10px;
   overflow: hidden;
   margin: 5px 0;
-  text-align: left;
   height: 18px;
 }
 .stat-fill {
@@ -123,10 +140,5 @@ header {
   align-items: center;
   border-radius: 10px;
 }
-@keyframes fadeIn {
-  from { opacity: 0; } to { opacity: 1; }
-}
-@keyframes slideUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+@keyframes slideUp { from {transform:translateY(40px);opacity:0;} to {transform:translateY(0);opacity:1;} }

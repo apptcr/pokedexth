@@ -4,6 +4,11 @@ async function loadPokedex() {
 
   const pokedex = document.getElementById("pokedex");
   const search = document.getElementById("search");
+  const toggleBtn = document.getElementById("toggle");
+  const randomBtn = document.getElementById("random");
+
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  let showingFavorites = false;
 
   function display(list) {
     pokedex.innerHTML = "";
@@ -13,7 +18,7 @@ async function loadPokedex() {
       card.innerHTML = `
         <img src="${p.image}" alt="${p.name}">
         <h3>${p.thai}</h3>
-        <p style="font-family: 'Poppins', sans-serif; font-size:0.9em;">(${p.name})</p>
+        <p style="font-family: 'Poppins', sans-serif;">(${p.name})</p>
         <div>${p.type.map(t => `<span class='type ${t}'>${t}</span>`).join("")}</div>
       `;
       card.onclick = () => showPopup(p);
@@ -23,6 +28,14 @@ async function loadPokedex() {
 
   function showPopup(p) {
     const popup = document.getElementById("popup");
+    const favBtn = document.getElementById("fav-btn");
+    const isFav = favorites.some(f => f.id === p.id);
+
+    favBtn.textContent = isFav ? "✅ อยู่ในรายการโปรด" : "⭐ เพิ่มในรายการโปรด";
+    favBtn.classList.toggle("added", isFav);
+
+    favBtn.onclick = () => toggleFavorite(p);
+
     document.getElementById("popup-img").src = p.image;
     document.getElementById("popup-thai").textContent = p.thai;
     document.getElementById("popup-eng").textContent = `(${p.name})`;
@@ -43,18 +56,45 @@ async function loadPokedex() {
     popup.classList.remove("hidden");
   }
 
+  function toggleFavorite(p) {
+    const exists = favorites.find(f => f.id === p.id);
+    if (exists) {
+      favorites = favorites.filter(f => f.id !== p.id);
+    } else {
+      favorites.push(p);
+    }
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    showPopup(p);
+    if (showingFavorites) display(favorites);
+  }
+
+  function toggleView() {
+    showingFavorites = !showingFavorites;
+    toggleBtn.textContent = showingFavorites ? "📖 ดูทั้งหมด" : "⭐ รายการโปรด";
+    toggleBtn.classList.toggle("active", showingFavorites);
+    display(showingFavorites ? favorites : pokemons);
+  }
+
+  function randomPokemon() {
+    const list = showingFavorites ? favorites : pokemons;
+    if (list.length === 0) return;
+    const random = list[Math.floor(Math.random() * list.length)];
+    showPopup(random);
+  }
+
   document.getElementById("close").onclick = () => document.getElementById("popup").classList.add("hidden");
   document.getElementById("popup").onclick = e => { if (e.target.id === "popup") document.getElementById("popup").classList.add("hidden"); };
-
-  display(pokemons);
+  toggleBtn.onclick = toggleView;
+  randomBtn.onclick = randomPokemon;
 
   search.addEventListener("input", e => {
     const keyword = e.target.value.toLowerCase();
-    const filtered = pokemons.filter(p =>
-      p.name.toLowerCase().includes(keyword) ||
-      p.thai.includes(keyword)
+    const filtered = (showingFavorites ? favorites : pokemons).filter(p =>
+      p.name.toLowerCase().includes(keyword) || p.thai.includes(keyword)
     );
     display(filtered);
   });
+
+  display(pokemons);
 }
 loadPokedex();
