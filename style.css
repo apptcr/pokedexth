@@ -1,14 +1,15 @@
 body {
   font-family: 'Sarabun', sans-serif;
   margin: 0;
-  background: #fff;
+  background: radial-gradient(circle at top, #f0f0f0, #cfcfcf);
   color: #333;
 }
 header {
   text-align: center;
-  padding: 1em;
-  background: linear-gradient(90deg, #ff1c1c, #ff4c4c);
+  padding: 1.5em;
+  background: linear-gradient(90deg, #ff1c1c, #ff6666);
   color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 .controls { margin-top: 10px; }
 button {
@@ -20,9 +21,9 @@ button {
   margin: 5px;
   cursor: pointer;
   font-weight: bold;
-  transition: 0.2s;
+  transition: 0.3s;
 }
-button:hover { background: #5da43d; }
+button:hover { background: #5da43d; transform: scale(1.05); }
 button.active { background: #f0c030; }
 #search {
   margin-top: 10px;
@@ -30,7 +31,7 @@ button.active { background: #f0c030; }
   width: 80%;
   max-width: 400px;
   border: none;
-  border-radius: 20px;
+  border-radius: 25px;
   outline: none;
   font-size: 1em;
 }
@@ -41,8 +42,9 @@ button.active { background: #f0c030; }
   padding: 20px;
 }
 .card {
-  background: #f8f8f8;
-  border-radius: 15px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
   text-align: center;
   padding: 15px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -51,16 +53,17 @@ button.active { background: #f0c030; }
 }
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 .card img { width: 100px; }
 .type {
   display: inline-block;
   margin: 3px;
-  padding: 4px 10px;
-  border-radius: 12px;
+  padding: 5px 12px;
+  border-radius: 14px;
   color: white;
   font-size: 0.8em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 .type.Grass { background: #78C850; }
 .type.Poison { background: #A040A0; }
@@ -78,54 +81,62 @@ button.active { background: #f0c030; }
   justify-content: center;
   animation: fadeIn 0.3s;
 }
-.card-popup {
-  background: white;
-  border-radius: 20px;
+.popup-card {
   width: 90%;
-  max-width: 600px;
-  padding: 20px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  max-width: 620px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(15px);
+  padding: 25px;
   position: relative;
-  animation: slideUp 0.3s ease;
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  animation: slideUp 0.4s ease;
 }
 #close {
   position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 1.5em;
+  top: 15px;
+  right: 25px;
+  font-size: 1.6em;
   cursor: pointer;
   color: #ff1c1c;
 }
-.card-header {
+.card-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 3px solid #ff1c1c;
+  border-bottom: 3px solid #ff4c4c;
   padding-bottom: 10px;
 }
-.card-header img {
-  width: 150px;
+.card-top img {
+  width: 180px;
   height: auto;
   object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
 }
-.card-header h2 {
+.card-info h2 {
   margin: 0;
-  font-size: 1.8em;
+  font-size: 1.9em;
   color: #ff1c1c;
 }
-.card-header p {
+.card-info p {
   font-family: 'Poppins', sans-serif;
-  color: #666;
+  color: #555;
   margin: 3px 0 0 0;
 }
-.types { margin-top: 10px; }
-.stats { margin-top: 10px; }
-.desc {
-  background: #f7f7f7;
-  border-radius: 10px;
-  padding: 10px;
+.types { margin-top: 15px; }
+.stats {
   margin-top: 10px;
+  font-weight: bold;
+  color: #444;
+}
+.desc {
+  background: rgba(255,255,255,0.6);
+  border-radius: 12px;
+  padding: 10px;
+  margin-top: 12px;
   font-size: 0.9em;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
 }
 .moves {
   margin-top: 15px;
@@ -140,6 +151,7 @@ button.active { background: #f0c030; }
   font-weight: bold;
   border: none;
   cursor: default;
+  transition: 0.2s;
 }
 .move-btn.blue { background: #4da6ff; color: #fff; }
 .move-btn.orange { background: #ff9933; color: #fff; }
@@ -148,6 +160,10 @@ button.active { background: #f0c030; }
   margin-top: 15px;
   background: #ffcc00;
   color: #333;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-weight: bold;
 }
 .fav-btn.added { background: #78C850; color: #fff; }
 @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokédex ภาษาไทย</title>
+  <title>Pokédex Deluxe</title>
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -20,21 +20,21 @@
   <main id="pokedex"></main>
 
   <div id="popup" class="hidden">
-    <div class="card-popup">
+    <div class="popup-card">
       <span id="close">&times;</span>
-      <div class="card-header">
-        <div class="info">
+      <div class="card-top">
+        <div class="card-info">
           <h2 id="popup-thai"></h2>
           <p id="popup-eng"></p>
         </div>
         <img id="popup-img" alt="pokemon">
       </div>
-      <div class="card-body">
+      <div class="card-mid">
         <div id="popup-type" class="types"></div>
         <div id="popup-stats" class="stats"></div>
         <p id="popup-desc" class="desc"></p>
       </div>
-      <div class="card-footer">
+      <div class="card-bottom">
         <div id="moves" class="moves"></div>
         <button id="fav-btn" class="fav-btn">⭐ เพิ่มในรายการโปรด</button>
       </div>
