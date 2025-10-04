@@ -12,9 +12,7 @@ header {
   color: white;
 }
 
-.controls {
-  margin-top: 10px;
-}
+.controls { margin-top: 10px; }
 button {
   background: #78C850;
   color: white;
@@ -26,12 +24,8 @@ button {
   font-weight: bold;
   transition: 0.2s;
 }
-button:hover {
-  background: #5da43d;
-}
-button.active {
-  background: #f0c030;
-}
+button:hover { background: #5da43d; }
+button.active { background: #f0c030; }
 
 #search {
   margin-top: 10px;
@@ -65,9 +59,7 @@ button.active {
   box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
-.card img {
-  width: 100px;
-}
+.card img { width: 100px; }
 
 .type {
   display: inline-block;
@@ -120,10 +112,17 @@ button.active {
   background: #ffcc00;
   color: #333;
 }
-.fav-btn.added {
-  background: #78C850;
-  color: #fff;
+.fav-btn.added { background: #78C850; color: #fff; }
+
+#popup-img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
+
 .stat-bar {
   background: #ddd;
   border-radius: 10px;
